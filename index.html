@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+      <title>Игрище
+      </title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Yusei+Magic&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="assets/css/styles.css">
+            </head>
+            <body id="background">
+              <header class="main-header">
+                <div class="logo">
+                  <img src="https://avatars.mds.yandex.net/i?id=fdc0d5a65d0d7f88b5959a2de3737b45_l-5876235-images-thumbs&n=13" alt="космос">
+                  </div>
+                  <nav class="main-nav">
+                    <ul>
+                      <li>
+                        <a href="#"> Заглушка
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#"> Заглушка
+                        </a>
+                      </li>
+                      <li>
+                        <a href="card/index.html" class="active"> Карты
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#"> Заглушка
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#"> Заглушка
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#"> Заглушка
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </header>
+                <main class="main-content">
+                  <section class="welcome-section">
+                    <h2> "ГУСИНЫЕ ВОЙНЫ"
+                    </h2>
+                    <div class="features">
+                      <h4>🎯 ЦЕЛЬ ИГРЫ:
+                      </h4>
+                      <p>Снизить здоровье противника  до 0, защищая своё здоровье.
+                      </p>
+                      <div class="welcome-message">
+                        <h4>🃟 КАРТЫ:
+                        </h4>
+                        <p>У каждой карты есть:
+                          <br>
+    - ❤️ Здоровье (HP)
+                            <br>
+    - ⚔️ Атака (урон)
+                              <br>
+    - 📍 Тип: Ближний (🔴), Средний (🟡), Дальний (🔵)
+                                <br>
+    - ✨ Способности (срабатывают при размещении, смерти или в конце хода)
+                                </p>
+                                <h4>🎮 КАК ИГРАТЬ:
+                                </h4>
+                                <p>1. Перетащи карту из руки на поле боя
+                                  <br>
+    2. Карту можно поставить ТОЛЬКО в ряд соответствующего типа
+                                    <br>
+    3. В одном ряду может быть не более 3 карт
+                                      <br>
+    4. Нажми "Конец хода" — начнётся битва!
+                                      </p>
+                                      <h4>🗑️ УДАЛЕНИЕ КАРТ:
+                                      </h4>
+                                      <p>Перетащи карту на мусорную корзину (справа), чтобы удалить её.
+                                      </p>
+                                      <h4>📖 СПРАВОЧНИК:
+                                      </h4>
+                                      <p>Нажми на колоду в левом нижнем углу, чтобы посмотреть все карты и их способности.
+                                      </p>
+                                      <h4>⚔️ ПРИНЦИП АТАК:
+                                      </h4>
+                                      <p>
+                                        <strong>Очерёдность рядов:
+                                        </strong> Дальний (🏹) → Средний (⚔️) → Ближний (🗡️)
+                                        <br>
+                                          <br>
+                                            <strong>Внутри ряда:
+                                            </strong>
+                                            <br>
+    • Какая карта атакует первой на одинаковых полях определяется рандомно
+                                              <br>
+    • Каждая карта атакует 1 раз за ход
+                                                <br>
+    • Карты с атакой 0
+                                                  <strong>НЕ АТАКУЮТ
+                                                  </strong>
+                                                  <br>
+                                                    <br>
+                                                      <strong>Перехват урона (Overkill):
+                                                      </strong>
+                                                      <br>
+    • Сначала атакуются карты с наименьшим здоровьем
+                                                        <br>
+    • Если урон превышает HP врага — остаток идёт по следующей карте
+                                                          <br>
+    • Если врагов нет — остаток идёт в героя
+                                                          </p>
+                                                        </div>
+                                                      </div>
+                                                    </section>
+                                                    <div class="game_table">
+                                                      <div class="card-game">
+                                                        <div id="game-info">
+                                                          <div>🧑 Ты:
+                                                            <span id="playerHP">50
+                                                            </span> ❤️
+                                                          </div>
+                                                          <div>🤖 Бот:
+                                                            <span id="enemyHP">50
+                                                            </span> ❤️
+                                                          </div>
+                                                        </div>
+                                                        <!-- ВРАГ - иконки справа -->
+                                                        <div class="board-side enemy">
+                                                          <div class="row" data-row="ranged">
+                                                            <div class="row-cards">
+                                                            </div>
+                                                            <div class="row-stats">
+                                                              <span class="stat-attack">⚔️0
+                                                              </span>
+                                                              <span class="stat-hp">❤️0
+                                                              </span>
+                                                            </div>
+                                                            <span class="row-icon ranged-icon">🏹
+                                                            </span>
+                                                          </div>
+                                                          <div class="row" data-row="mid">
+                                                            <div class="row-cards">
+                                                            </div>
+                                                            <div class="row-stats">
+                                                              <span class="stat-attack">⚔️0
+                                                              </span>
+                                                              <span class="stat-hp">❤️0
+                                                              </span>
+                                                            </div>
+                                                            <span class="row-icon mid-icon">⚔️
+                                                            </span>
+                                                          </div>
+                                                          <div class="row" data-row="melee">
+                                                            <div class="row-cards">
+                                                            </div>
+                                                            <div class="row-stats">
+                                                              <span class="stat-attack">⚔️0
+                                                              </span>
+                                                              <span class="stat-hp">❤️0
+                                                              </span>
+                                                            </div>
+                                                            <span class="row-icon melee-icon">🗡️
+                                                            </span>
+                                                          </div>
+                                                        </div>
+                                                        <!-- ЦЕНТР -->
+                                                        <div class="board-center">
+                                                          <div class="board-left">
+                                                            <button id="endTurn">Конец хода
+                                                            </button>
+                                                          </div>
+                                                          <div class="board-title">⚔️ ПОЛЕ БОЯ ⚔️
+                                                          </div>
+                                                          <div class="board-right">
+                                                          </div>
+                                                        </div>
+                                                        <!-- ИГРОК - иконки тоже справа (как у врага) -->
+                                                        <div class="board-side player">
+                                                          <div class="row" data-row="melee">
+                                                            <div class="row-cards">
+                                                            </div>
+                                                            <div class="row-stats">
+                                                              <span class="stat-attack">⚔️0
+                                                              </span>
+                                                              <span class="stat-hp">❤️0
+                                                              </span>
+                                                            </div>
+                                                            <span class="row-icon melee-icon">🗡️
+                                                            </span>
+                                                          </div>
+                                                          <div class="row" data-row="mid">
+                                                            <div class="row-cards">
+                                                            </div>
+                                                            <div class="row-stats">
+                                                              <span class="stat-attack">⚔️0
+                                                              </span>
+                                                              <span class="stat-hp">❤️0
+                                                              </span>
+                                                            </div>
+                                                            <span class="row-icon mid-icon">⚔️
+                                                            </span>
+                                                          </div>
+                                                          <div class="row" data-row="ranged">
+                                                            <div class="row-cards">
+                                                            </div>
+                                                            <div class="row-stats">
+                                                              <span class="stat-attack">⚔️0
+                                                              </span>
+                                                              <span class="stat-hp">❤️0
+                                                              </span>
+                                                            </div>
+                                                            <span class="row-icon ranged-icon">🏹
+                                                            </span>
+                                                          </div>
+                                                        </div>
+                                                        <div id = "hand">
+                                                        </div>
+                                                        <div id="trashBin" class="trash-bin">
+                                                          <span>🗑️
+                                                          </span>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </main>
+                                              <div id="deck" class="deck">
+                                              </div>
+                                              <footer class="main-footer">
+                                                <p>текст
+                                                </p>
+                                              </footer>
+                                              <div id="gameOverScreen" class="game-over hidden">
+                                                <div class="game-over-content">
+                                                  <h2 id="gameOverText">
+                                                  </h2>
+                                                  <button id="restartBtn">Заново
+                                                  </button>
+                                                </div>
+                                              </div>
+                                              <!-- Вместо модального окна - добавляем скрытую страницу -->
+                                              <div id="guidePage" class="guide-page hidden">
+                                                <div class="guide-page-header">
+                                                  <h2>📖 Справочник карт
+                                                  </h2>
+                                                  <button id="closeGuideBtn" class="close-guide-btn">✖ Закрыть
+                                                  </button>
+                                                </div>
+                                                <div class="guide-page-content" id="guidePageContent">
+                                                  <!-- Контент будет здесь -->
+                                                </div>
+                                              </div>
+                                              <script src="assets/js/main.js">
+                                              </script>
+                                            </body>
+                                          </html>
